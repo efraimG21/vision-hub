@@ -5,8 +5,8 @@ import time
 
 from PySide6.QtCore import Signal, QThread
 
-from services.logger import get_logger
-from services.safe_video_capture import open_capture
+from app.services.logger import get_logger
+from app.services.safe_video_capture import open_capture
 
 
 class VideoCaptureThread(QThread):

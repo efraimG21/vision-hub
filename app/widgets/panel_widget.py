@@ -11,10 +11,10 @@ from PySide6.QtCore import Qt, QSettings, Signal, QSize
 from PySide6.QtGui import QPixmap, QImage, QMouseEvent, QTouchEvent
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QSizePolicy
 
-from __init__ import AXIS_PASSWORD, AXIS_USER_NAME, RECORDINGS_DIR, APP_NAME
-from services.logger import get_logger
-from widgets.video_recorder_thread import VideoRecorder
-from widgets.video_capture_thread import VideoCaptureThread
+from app import AXIS_PASSWORD, AXIS_USER_NAME, RECORDINGS_DIR, APP_NAME
+from app.services.logger import get_logger
+from app.widgets.video_recorder_thread import VideoRecorder
+from app.widgets.video_capture_thread import VideoCaptureThread
 
 NO_IP = "Does not have an assigned IP address."
 

@@ -5,7 +5,7 @@ from queue import Queue
 import cv2
 from PySide6.QtCore import QThread
 
-from services.logger import get_logger
+from app.services.logger import get_logger
 
 
 class VideoRecorder(QThread):

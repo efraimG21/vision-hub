@@ -1,0 +1,4 @@
+
+./app/recordings/
+*.mp4
+.idea

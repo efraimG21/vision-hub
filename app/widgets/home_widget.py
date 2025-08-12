@@ -3,10 +3,10 @@
 from PySide6.QtCore import QSettings
 from PySide6.QtWidgets import QWidget, QGridLayout, QSizePolicy, QApplication
 
-from __init__ import APP_NAME
+from app import APP_NAME
 
-from services.logger import get_logger
-from widgets.panel_widget import PanelWidget
+from app.services.logger import get_logger
+from app.widgets.panel_widget import PanelWidget
 
 class HomeWidget(QWidget):
     def __init__(self):

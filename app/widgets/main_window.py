@@ -9,30 +9,14 @@ from PySide6.QtWidgets import (
     QMessageBox, QDialog, QLabel
 )
 
-from __init__ import RECORDINGS_DIR, APP_NAME
+from app import RECORDINGS_DIR, APP_NAME
 
-from services.logger import get_logger
-from widgets.battery_widget import BatteryWidget
-from widgets.home_widget import HomeWidget
-from widgets.media_player_widget import MediaPlayerWidget
-from widgets.pin_dialog import PinDialog
-from widgets.settings_widget import SettingsWidget
-
-class _RefreshSignals(QObject):
-    refresh_panel = Signal(object)   # emits a PanelWidget
-    finished = Signal()
-
-class _RefreshTask(QRunnable):
-    def __init__(self, panels):
-        super().__init__()
-        self.signals = _RefreshSignals()
-        self._panels = panels
-
-    def run(self):
-        # Emit a signal for each panel; UI work happens in the main thread.
-        for p in self._panels:
-            self.signals.refresh_panel.emit(p)
-        self.signals.finished.emit()
+from app.services.logger import get_logger
+from app.widgets.battery_widget import BatteryWidget
+from app.widgets.home_widget import HomeWidget
+from app.widgets.media_player_widget import MediaPlayerWidget
+from app.widgets.pin_dialog import PinDialog
+from app.widgets.settings_widget import SettingsWidget
 
 
 class MainWindow(QMainWindow):

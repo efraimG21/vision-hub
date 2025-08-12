@@ -6,8 +6,8 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLabel, QGroupBox, QFormLayout, QLineEdit, QMessageBox
 )
-from __init__ import APP_NAME
-from services.logger import get_logger
+from app import APP_NAME
+from app.services.logger import get_logger
 
 
 class SettingsWidget(QWidget):
