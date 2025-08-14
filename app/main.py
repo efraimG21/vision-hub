@@ -3,9 +3,9 @@ import multiprocessing
 import sys
 import os
 from PySide6.QtWidgets import QApplication
-from __init__ import RECORDINGS_DIR, APP_NAME
-from services.logger import get_logger
-from widgets.main_window import MainWindow
+from app import RECORDINGS_DIR, APP_NAME
+from app.services.logger import get_logger
+from app.widgets.main_window import MainWindow
 
 def main():
     logger = get_logger(__name__)

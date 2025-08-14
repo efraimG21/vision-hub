@@ -33,7 +33,7 @@ class MediaPlayerWidget(QWidget):
             QPushButton {
                 background-color: #0078d4;
                 color: white;
-                font-size: 24px;
+                font-size: 20px;
                 font-weight: bold;
                 border-radius: 15px;
                 padding: 10px;
@@ -49,7 +49,7 @@ class MediaPlayerWidget(QWidget):
             QListWidget {
                 background-color: #2a2a2a;
                 color: white;
-                font-size: 22px;
+                font-size: 16px;
                 border-radius: 15px;
                 padding: 10px;
             }

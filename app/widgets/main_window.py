@@ -2,7 +2,7 @@
 import os
 import platform
 
-from PySide6.QtCore import Qt, QSettings, QTimer, QObject, Signal, QRunnable, QThreadPool
+from PySide6.QtCore import Qt, QSettings, QTimer, QThreadPool
 from PySide6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QStackedWidget,
@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
 from app import RECORDINGS_DIR, APP_NAME
 
 from app.services.logger import get_logger
+from app.services.refresh import RefreshTask
 from app.widgets.battery_widget import BatteryWidget
 from app.widgets.home_widget import HomeWidget
 from app.widgets.media_player_widget import MediaPlayerWidget
@@ -126,7 +127,7 @@ class MainWindow(QMainWindow):
         QTimer.singleShot(4000, self._reenable_refresh_btn)
 
         # 2) Start background task that *signals* the main thread to refresh each panel
-        task = _RefreshTask(self.home.panels)
+        task = RefreshTask(self.home.panels)
         task.signals.refresh_panel.connect(self._refresh_one_panel)  # runs in main thread
         task.signals.finished.connect(self._refresh_finished)
         self.threadpool.start(task)

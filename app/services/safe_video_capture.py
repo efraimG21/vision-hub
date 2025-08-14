@@ -3,7 +3,7 @@
 import multiprocessing
 import cv2
 
-from services.logger import get_logger
+from app.services.logger import get_logger
 
 logger = get_logger(__name__)
 
