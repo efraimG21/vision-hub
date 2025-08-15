@@ -7,7 +7,7 @@
 
 ## 📖 Overview
 
-Axis Multi-Cam Monitor is a desktop application for **real-time IP camera monitoring**, **multi-stream recording**, and **video playback** — specifically designed for **Axis video encoder network cameras**.  
+Vision Hub Multi Cam Monitor is a desktop application for **real-time IP camera monitoring**, **multi-stream recording**, and **video playback** specifically designed for **Axis video encoder network cameras**.  
 It features a **tablet-friendly UI** with large, touch-optimized controls, a **dark high-contrast theme** for low-light environments, and **multi-camera live view** for security, marine, and robotics operations.
 
 ---
