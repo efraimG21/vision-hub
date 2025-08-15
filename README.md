@@ -43,13 +43,11 @@ It features a **tablet-friendly UI** with large, touch-optimized controls, a **d
 
 ## 📷 Screenshots
 
-```
 
-![Home View](docs/screenshots/home_view.png)
-![Media Player](docs/screenshots/media_player.png)
-![Settings Page](docs/screenshots/settings_page.png)
+![Home View](./docs/screenshots/home_view.png)
+![Media Player](./docs/screenshots/media_player.png)
+![Settings Page](./docs/screenshots/settings_page.png)
 
-````
 
 ---
 
