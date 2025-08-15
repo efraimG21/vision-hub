@@ -17,13 +17,11 @@ class MediaPlayerWidget(QWidget):
         self.player.durationChanged.connect(self.update_duration)
         self.player.positionChanged.connect(self.update_position)
 
-        # === MAIN LAYOUT ===
         main_layout = QHBoxLayout(self)
         main_layout.setContentsMargins(20, 20, 20, 20)
         main_layout.setSpacing(25)
         self.setLayout(main_layout)
 
-        # 🎛 LEFT PANEL (Recordings List)
         left_panel = QVBoxLayout()
         left_panel.setSpacing(15)
 
@@ -66,11 +64,9 @@ class MediaPlayerWidget(QWidget):
         left_panel.addWidget(self.refresh_btn)
         left_panel.addWidget(self.list_widget)
 
-        # 📺 RIGHT PANEL (Player)
         right_panel = QVBoxLayout()
         right_panel.setSpacing(20)
 
-        # Title above video
         self.video_title = QLabel("📼 Select a recording")
         self.video_title.setAlignment(Qt.AlignCenter)
         self.video_title.setStyleSheet("""
@@ -80,14 +76,12 @@ class MediaPlayerWidget(QWidget):
             padding: 5px;
         """)
 
-        # Video display
         self.video_widget = QVideoWidget()
         self.video_widget.setStyleSheet("""
             background-color: black;
             border-radius: 20px;
         """)
 
-        # --- Seek bar with time labels ---
         seek_layout = QHBoxLayout()
         self.current_time_label = QLabel("00:00")
         self.current_time_label.setStyleSheet("color: white; font-size: 20px; font-weight: bold;")
@@ -120,7 +114,6 @@ class MediaPlayerWidget(QWidget):
         seek_layout.addWidget(self.seek_slider, 1)
         seek_layout.addWidget(self.total_time_label)
 
-        # 🎮 Playback Controls
         controls_layout = QHBoxLayout()
         controls_layout.setSpacing(30)
 
@@ -156,10 +149,8 @@ class MediaPlayerWidget(QWidget):
         main_layout.addLayout(left_panel, 1)
         main_layout.addLayout(right_panel, 2)
 
-        # Connect player to video widget
         self.player.setVideoOutput(self.video_widget)
 
-        # Signals
         self.refresh_btn.clicked.connect(self.load_video_list)
         self.list_widget.itemDoubleClicked.connect(self.play_selected_video)
         self.play_pause_btn.clicked.connect(self.toggle_play_pause)
@@ -167,7 +158,6 @@ class MediaPlayerWidget(QWidget):
         self.rewind_btn.clicked.connect(lambda: self.skip_seconds(-10))
         self.forward_btn.clicked.connect(lambda: self.skip_seconds(10))
 
-        # Load recordings
         self.load_video_list()
 
         self.is_playing = False
@@ -219,7 +209,6 @@ class MediaPlayerWidget(QWidget):
         self.play_pause_btn.setText("▶️ Play")
         self.is_playing = False
 
-    # --- Slider & Time Handling ---
     def update_duration(self, duration):
         self.seek_slider.setRange(0, duration)
         self.total_time_label.setText(self.format_time(duration))
@@ -238,7 +227,6 @@ class MediaPlayerWidget(QWidget):
         secs = ms // 1000
         return QTime(0, secs // 60, secs % 60).toString("mm:ss")
 
-    # --- Skip Buttons ---
     def skip_seconds(self, seconds):
         """Jump forward or backward by X seconds."""
         new_pos = self.player.position() + (seconds * 1000)

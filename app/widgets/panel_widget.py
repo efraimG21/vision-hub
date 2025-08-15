@@ -58,10 +58,9 @@ class PanelWidget(QWidget):
         self.recorder = None
         self.video_cap: cv2.VideoCapture | None = None
 
-        if self.video_url:
-            self.start_video_thread()
-        else:
-            self.video_label.setText(NO_IP)
+
+        self.start_video_thread() if self.video_url else self.video_label.setText(NO_IP)
+
 
         self.setMinimumSize(QSize(500, 340)) # TODO: try to make responsive not by size this is the value of 'self.current_pixmap'
         self.setAttribute(Qt.WA_AcceptTouchEvents, True)
@@ -146,6 +145,7 @@ class PanelWidget(QWidget):
         if fps <= 1:
             fps = 25  # fallback
 
+        self.logger.debug(f'fps: {fps}')
         filename = f"{self.title.replace(' ', '_')}_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.mp4"
         output_path = os.path.join(RECORDINGS_DIR, filename)
         self.recorder = VideoRecorder(
