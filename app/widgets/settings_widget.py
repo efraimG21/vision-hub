@@ -134,7 +134,7 @@ class SettingsWidget(QWidget):
 
             if ip and not self.is_valid_ip(ip):
                 ip_field.clear()
-                name_field.clear()
+                settings.setValue(f"device_{i}/ip", '')
                 continue
 
             settings.setValue(f"device_{i}/ip", ip)
