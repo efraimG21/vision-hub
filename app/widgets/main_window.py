@@ -23,7 +23,7 @@ from app.widgets.settings_widget import SettingsWidget
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Axis video app")
+        self.setWindowTitle(APP_NAME)
         self.setStyleSheet("""
             QWidget {
                 background-color:rgb(41, 41, 40);
